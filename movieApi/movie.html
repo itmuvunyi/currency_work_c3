@@ -16,6 +16,13 @@
             align-items: center;
             padding: 20px;
         }
+        h1 {
+    font-size: 28px;
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
         .search-container {
             text-align: center;
             margin-bottom: 20px;
@@ -86,7 +93,8 @@
 </head>
 <body>
 <div class="search-container">
-    <input type="text" id="search" placeholder="Search for movies...">
+     <h1>TV API Search Show</h1> <!-- Added Header --> <br>
+    <input type="text" id="search" placeholder="Search for movies show...">
     <button id="searchButton" type="submit"><i class="fa fa-search"></i> Search</button>
 </div>
 <div id="results"></div>
@@ -109,7 +117,7 @@
             data.forEach(item => {
                 output += `<div class="movie">
                         <h2>${item.show.name}</h2>
-                        <img src="${item.show.image?.medium}" alt="${item.show.name}">
+                        <img src="${item.show.image ?item.show.image.medium:"404.png"}" alt="${item.show.name}">
                         <p class="genre">Genres: ${item.show.genres.join(", ")}</p>
                         <p class="summary">${item.show.summary.replace(/<\/?[^>]+(>|$)/g, "")}</p>
                     </div>`;
